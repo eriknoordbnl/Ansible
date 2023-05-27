@@ -2,9 +2,10 @@
 
 - hosts: all
   become: true
-  tasks:
+  pre_tasks:
 
   - name: update repository
     apt:
+      upgrade: dist
       update_cache: yes
     when: ansible_distribution in ["Debian", "Ubuntu"]
